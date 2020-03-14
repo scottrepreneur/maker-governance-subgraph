@@ -80,7 +80,7 @@ type Spell @entity {
   timestamp: BigInt!
 
   " Spell's short description "
-  description: Bytes
+  description: String
 
   " Spell's data "
   data: Bytes

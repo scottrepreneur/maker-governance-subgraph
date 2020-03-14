@@ -56,6 +56,8 @@ dataSources:
           file: ./abis/RaiseCeilingLowerSF.json
         - name: DssSpellPaused
           file: ./abis/DssSpellPaused.json
+        - name: Description
+          file: ./abis/Description.json
       eventHandlers:
         - event: LogNote(indexed bytes4,indexed address,indexed bytes32,indexed bytes32,uint256,bytes)
           topic0: '0xdd46706400000000000000000000000000000000000000000000000000000000' # lock(uint)

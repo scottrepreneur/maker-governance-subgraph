@@ -9,6 +9,7 @@ import {
 
 import { LogNote, DSChief, Etch } from '../../generated/DSChief/DSChief'
 import { DSSpell } from '../../generated/DSChief/DSSpell'
+import { Description } from '../../generated/DSChief/Description'
 import { RaiseCeilingLowerSF } from '../../generated/DSChief/RaiseCeilingLowerSF'
 
 import {
@@ -398,6 +399,12 @@ function handleSlate(
       spell.approvals = BIGDECIMAL_ZERO
       spell.totalVotes = BIGINT_ZERO
       spell.timeLineCount = BIGINT_ZERO
+
+      let dsSpellDescription = Description.bind(spellAddress)
+      let descriptionResponse = dsSpellDescription.try_description()
+      if (!descriptionResponse.reverted) {
+        spell.description = descriptionResponse.value
+      }
 
       if (isDssSpellPaused(spellAddress)) {
         DssSpellPausedTemplate.create(spellAddress)
