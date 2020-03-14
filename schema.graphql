@@ -79,6 +79,9 @@ type Spell @entity {
   " Timestamp when the spell was voted by the first time"
   timestamp: BigInt!
 
+  " Spell's short description "
+  description: Bytes
+
   " Spell's data "
   data: Bytes
 
